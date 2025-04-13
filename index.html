@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SafeBridge - Victim to Police Connection Portal</title>
+  <title>QuickFIR - Victim to Police & Lawyer Connection Portal</title>
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
@@ -14,7 +14,7 @@
         <i class="fa-solid fa-shield"></i>
         <h1>QuickFIR</h1>
       </div>
-      <button class="emergency-btn">
+      <button class="emergency-btn" onclick="window.location.href='tel:100'">
         <i class="fa-solid fa-phone"></i>
         <span>Emergency: 100</span>
       </button>
@@ -22,15 +22,15 @@
 
     <main>
       <div class="hero">
-        <h1>Victim to Police Station</h1>
-        <p>Connect with your local law enforcement to report a crime.</p>
+        <h1>QuickFIR Portal</h1>
+        <p>Connect with police stations and lawyers in India to report crimes and get legal assistance.</p>
       </div>
 
       <div class="content-grid">
         <!-- Report Form -->
         <div class="card">
           <h2>Report a Crime</h2>
-          <form>
+          <form id="report-form">
             <div class="form-group">
               <label for="name">Full name</label>
               <input type="text" id="name" placeholder="Enter your full name" required>
@@ -39,7 +39,7 @@
             <div class="form-row">
               <div class="form-group">
                 <label for="phone">Phone number</label>
-                <input type="tel" id="phone" placeholder="+91 1234567890" required>
+                <input type="tel" id="phone" placeholder="+91 XXXXX XXXXX" required>
               </div>
               <div class="form-group">
                 <label for="email">Email (optional)</label>
@@ -67,56 +67,103 @@
 
             <div class="form-group">
               <label for="description">Description</label>
-              <textarea id="description" rows="5" placeholder="Describe the complete incident in detail" required></textarea>
+              <textarea id="description" rows="5" placeholder="Describe what happened in detail" required></textarea>
             </div>
 
-            <button type="submit" class="submit-btn">Submit FIR</button>
+            <button type="submit" class="submit-btn">Submit Report</button>
           </form>
         </div>
 
-        
+        <!-- Lawyer Section -->
         <div class="card">
-          <h2>Connect to Advocates</h2>
+          <h2>Connect with Lawyers</h2>
           <div class="search-container">
             <i class="fa-solid fa-search"></i>
-            <input type="text" placeholder="Search by name or location">
+            <input type="text" id="lawyer-search" placeholder="Search lawyers by name or location">
           </div>
 
-          <div class="station-list">
-            <div class="station-item">
-              <div class="station-info">
-                <h3>Adv. Sudheer Chaudhary</h3>
-                <p><i class="fa-solid fa-location-dot"></i> Main Road,Bishnupur</p>
+          <div class="lawyer-list">
+            <div class="lawyer-item">
+              <div class="lawyer-info">
+                <h3>Adv. Rajesh Kumar</h3>
+                <p><i class="fa-solid fa-location-dot"></i>khararia,Bihar</p>
+                <p>Specialization: Criminal Law</p>
               </div>
-              <span class="distance"> Office-1.2 km</span>
-              <div class="station-contact">
-                <p><i class="fa-solid fa-phone"></i> +91 9868567890</p>
-                <button class="call-btn">Call</button>
-              </div>
-            </div>
-
-            <div class="station-item">
-              <div class="station-info">
-                <h3>Lawyer Manjesh Mahaprabhu</h3>
-                <p><i class="fa-solid fa-location-dot"></i> Sabuna chauk,kharpura</p>
-              </div>
-              <span class="distance"> Office-2.5 km</span>
-              <div class="station-contact">
-                <p><i class="fa-solid fa-phone"></i> +91 9877678790</p>
-                <button class="call-btn">Call</button>
+              <div class="lawyer-contact">
+                <p><i class="fa-solid fa-phone"></i> +91 6202010342</p>
+                <button class="call-btn" onclick="window.location.href='tel:+91 6202010342'">Call</button>
               </div>
             </div>
 
-            <div class="station-item">
-              <div class="station-info">
-                <h3>Adv. Sunny Kumar</h3>
-                <p><i class="fa-solid fa-location-dot"></i> Challaunpur,Chhapra </p>
+            <div class="lawyer-item">
+              <div class="lawyer-info">
+                <h3>Adv. Priya Sharma</h3>
+                <p><i class="fa-solid fa-location-dot"></i>  Begusarai,Bihar</p>
+                <p>Specialization: Family Law</p>
               </div>
-              <span class="distance"> Office-3.8 km</span>
-              <div class="station-contact">
-                <p><i class="fa-solid fa-phone"></i> +91 8765430890</p>
-                <button class="call-btn">Call</button>
+              <div class="lawyer-contact">
+                <p><i class="fa-solid fa-phone"></i> +91 87654 32109</p>
+                <button class="call-btn" onclick="window.location.href='tel:+91 8765432109'">Call</button>
               </div>
+            </div>
+
+            <div class="lawyer-item">
+              <div class="lawyer-info">
+                <h3>Adv. Vikram Singh</h3>
+                <p><i class="fa-solid fa-location-dot"></i> Patna, Bihar</p>
+                <p>Specialization: crime Law</p>
+              </div>
+              <div class="lawyer-contact">
+                <p><i class="fa-solid fa-phone"></i> +91 76543 21098</p>
+                <button class="call-btn" onclick="window.location.href='tel:+91 7654321098'">Call</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Police Stations Section -->
+      <div class="card mb-12">
+        <h2>Police Stations</h2>
+        <div class="search-container">
+          <i class="fa-solid fa-search"></i>
+          <input type="text" id="station-search" placeholder="Search by name or location">
+        </div>
+        
+        <div class="station-list">
+          <div class="station-item">
+            <div class="station-info">
+              <h3>Chapra Police Station</h3>
+              <p><i class="fa-solid fa-location-dot"></i> Chapra, Bihar</p>
+            </div>
+            <span class="distance">2.3 km</span>
+            <div class="station-contact">
+              <p><i class="fa-solid fa-phone"></i>+91 6249573865</p>
+              <button class="call-btn" onclick="window.location.href='tel:+91 6249573865'">Call</button>
+            </div>
+          </div>
+
+          <div class="station-item">
+            <div class="station-info">
+              <h3>Arah Police Station</h3>
+              <p><i class="fa-solid fa-location-dot"></i> Arah,Bihar</p>
+            </div>
+            <span class="distance">3.5 km</span>
+            <div class="station-contact">
+              <p><i class="fa-solid fa-phone"></i> +91 6758495736</p>
+              <button class="call-btn" onclick="window.location.href='tel:+91 6758495736'">Call</button>
+            </div>
+          </div>
+
+          <div class="station-item">
+            <div class="station-info">
+              <h3>Danapur Police Station</h3>
+              <p><i class="fa-solid fa-location-dot"></i> Danapur,Patna,Bihar</p>
+            </div>
+            <span class="distance">1.8 km</span>
+            <div class="station-contact">
+              <p><i class="fa-solid fa-phone"></i> +91 9663956274</p>
+              <button class="call-btn" onclick="window.location.href='tel:+91 9663956274'">Call</button>
             </div>
           </div>
         </div>
@@ -127,7 +174,7 @@
           <i class="fa-solid fa-triangle-exclamation"></i>
           <div>
             <h2>Safety Notice</h2>
-            <p>If you're in immediate danger, please call 100 immediately. This platform is for emergency reporting and connecting with local police stations.</p>
+            <p>If you're in immediate danger, please call 100 immediately. This platform is for non-emergency reporting and connecting with local police stations and lawyers in India.</p>
           </div>
         </div>
         
@@ -136,10 +183,11 @@
         <div class="info-section">
           <i class="fa-solid fa-info"></i>
           <div>
-            <h2>How it Works</h2>
+            <h2>How QuickFIR Works</h2>
             <ol>
               <li>Fill out the report form with details about the incident</li>
               <li>Your report is sent securely to the nearest police station</li>
+              <li>Connect with a lawyer for legal advice if needed</li>
               <li>An officer will review your case and contact you</li>
               <li>Follow up on your case through the provided contact information</li>
             </ol>
@@ -153,14 +201,16 @@
         <i class="fa-solid fa-shield"></i>
         <span>QuickFIR</span>
       </div>
-      <p>Connecting victims to law enforcement safely and securely.</p>
+      <p>Connecting victims to law enforcement and legal assistance safely and securely in India.</p>
     </footer>
 
     <div class="emergency-float">
-      <button onclick="window.location.href='tel:911'">
-        <i class="fa-solid fa-phone"></i>
+      <button onclick="window.location.href='tel:100'">
+        <i class="fa-solid fa-microphone"></i>
       </button>
     </div>
   </div>
+
+  <script src="script.js"></script>
 </body>
 </html>
